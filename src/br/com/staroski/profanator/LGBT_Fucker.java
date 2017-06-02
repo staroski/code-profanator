@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 
+/**
+ * The <I><B>L</B>e<B>G</B>i<B>B</B>ili<B>T</B>y fucker</I> is <B>Staroski's Code Profanator</B>'s most important class.<BR>
+ * It simple fucks with the legibility of the source code being profanated.
+ */
 final class LGBT_Fucker {
 
 	private static final String NEW_LINE = "\n";
