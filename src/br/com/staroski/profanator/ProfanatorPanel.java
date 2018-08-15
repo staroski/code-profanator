@@ -134,7 +134,7 @@ final class ProfanatorPanel extends JPanel {
     private void writeContents(File file) {
         try {
             String text = textArea.getText();
-            text = text.replaceAll("\r", System.getProperty("line.separator"));
+            text = text.replaceAll("\n", System.getProperty("line.separator"));
             byte[] bytes = text.getBytes();
             Files.write(file.toPath(), bytes, StandardOpenOption.CREATE);
         } catch (IOException e) {
