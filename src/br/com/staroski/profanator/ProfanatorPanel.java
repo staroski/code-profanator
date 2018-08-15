@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -33,14 +34,17 @@ final class ProfanatorPanel extends JPanel {
     }
 
     public void saveAs(File file) {
+        int option = JOptionPane.YES_OPTION;
         if (file.exists()) {
-            int option = JOptionPane.showConfirmDialog(this, "File already exists, overwrite?", "Confirm", JOptionPane.YES_NO_OPTION,
-                                                       JOptionPane.QUESTION_MESSAGE);
-            if (option != JOptionPane.YES_OPTION) {
-                return;
-            }
+            option = JOptionPane.showConfirmDialog(this,
+                                                   "File already exists!\nDo you want to overwrite?",
+                                                   "Question",
+                                                   JOptionPane.YES_NO_OPTION,
+                                                   JOptionPane.QUESTION_MESSAGE);
         }
-        writeContents(file);
+        if (option == JOptionPane.YES_OPTION) {
+            writeContents(file);
+        }
     }
 
     private JButton createButtonProfanate() {
@@ -128,8 +132,13 @@ final class ProfanatorPanel extends JPanel {
     }
 
     private void writeContents(File file) {
-        JOptionPane.showMessageDialog(this, "This function is not yet implemented, sorry", "Not yet implemented", JOptionPane.QUESTION_MESSAGE);
-        // TODO
+        try {
+            String text = textArea.getText();
+            text = text.replaceAll("\r", System.getProperty("line.separator"));
+            byte[] bytes = text.getBytes();
+            Files.write(file.toPath(), bytes, StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 }
