@@ -5,16 +5,16 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * The <I><B>L</B>e<B>G</B>i<B>B</B>ili<B>T</B>y fucker</I> is <B>Staroski's Code Profanator</B>'s most important class.<BR>
- * It simple fucks with the legibility of the source code being profanated.
+ * The <tt>Mangler</tt> is <B>Staroski's Code Profanator</B>'s most important class.<BR>
+ * It simple mangles the legibility of the source code being profanated.
  */
-final class LGBT_Fucker {
+final class Mangler {
 
     private static final String NEW_LINE = "\n";
     private static final String LINE_COMMENT = "// ";
     private static final String UNICODE_LINE_FEED = "\\u000a";
 
-    public String fuck(String origin) {
+    public String mangle(String origin) {
         StringBuilder fucked = new StringBuilder();
         try {
             BufferedReader reader = new BufferedReader(new StringReader(origin));

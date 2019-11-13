@@ -98,8 +98,8 @@ final class ProfanatorPanel extends JPanel {
         String toProfanate = text.substring(selection.start, selection.end);
         String sufix = text.substring(selection.end);
 
-        LGBT_Fucker lgbt_fucker = new LGBT_Fucker();
-        String profanated = lgbt_fucker.fuck(toProfanate);
+        Mangler mangler = new Mangler();
+        String profanated = mangler.mangle(toProfanate);
         textArea.setText(prefix + profanated + sufix);
         textArea.setCaretPosition(prefix.length());
     }
